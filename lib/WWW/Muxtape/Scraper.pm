@@ -17,8 +17,6 @@ around 'new' => sub {
 sub _load_scrapers {
     foreach my $scraper ( __PACKAGE__->scrapers ) {
         my ($name) = decamelize( ref $scraper ) =~ /(\w+)$/;
-        warn $name;
-
         __PACKAGE__->meta->add_attribute(
             $name => (
                 is      => "rw",
