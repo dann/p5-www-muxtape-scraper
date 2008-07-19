@@ -47,6 +47,14 @@ WWW::Muxtape::Scraper -
 
   use WWW::Muxtape::Scraper;
 
+  use WWW::Muxtape::Scraper;
+  my $muxtape = WWW::Muxtape::Scraper->new;
+  my $tape_lists = $muxtape->top_page->scrape();
+  my $tapes = []; 
+  foreach my $tape ( @{$tape_lists}) {
+        push @{$tapes}, $muxtape->tape_page->scrape(tapename => $tape->{tapename});
+  }   
+
 =head1 DESCRIPTION
 
 WWW::Muxtape::Scraper is
