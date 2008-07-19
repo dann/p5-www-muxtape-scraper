@@ -8,12 +8,6 @@ use String::CamelCase qw( decamelize );
 
 our $VERSION = '0.01';
 
-sub before_ {
-    my $self = shift;
-    $self->_load_scrapers;
-
-}
-
 around 'new' => sub {
     my ( $next, $class, @args ) = @_;
     $class->_load_scrapers;
